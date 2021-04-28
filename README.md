@@ -1,6 +1,3 @@
-# Rock Stage SRE Assessment
-
-## About Rock Stage
 
 Para subir a stack realizar os procedimentos abaixo:
 Foram criados tres databases com os nomes db_app1, db_app2 e db_app2. Cada database tem um usuario user/pass como dono conforme tabela abaixo:
