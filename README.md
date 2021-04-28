@@ -96,6 +96,6 @@ kubectl apply -f pvs/app3.yaml
 ## Deployment
 kubectl apply -f deployments/app3.yaml
 
-# Service ( esse servico é do tipo NodePort e foi configurado a porta 30082 para acesso)
-# Ex: http:IP_MINIKUBE:30082
+### Service ( esse servico é do tipo NodePort e foi configurado a porta 30082 para acesso)
+### Ex: http:IP_MINIKUBE:30082
 kubectl apply -f services/app3.yaml
