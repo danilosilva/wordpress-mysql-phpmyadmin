@@ -12,7 +12,7 @@ Requisitos: Para manter os dados mesmo que os pods reiniciem, foram criados pvs 
 
 /mnt/sistema/db01
 
-##Criando banco de dados
+## Criando banco de dados
 
 kubectl apply -f namespaces/db.yaml
 
@@ -24,7 +24,7 @@ kubectl apply -f deployments/db.yaml
 
 kubectl apply -f services/db.yaml
 
-##Criando ambiente phpmyadmin
+## Criando ambiente phpmyadmin
 
 kubectl apply -f namespaces/phpmyadmin.yaml
 
@@ -34,7 +34,7 @@ kubectl apply -f deployments/phpmyadmin.yaml
 
 kubectl apply -f services/phpmyadmin.yaml
 
-##Criando ambiente aplicacao1
+## Criando ambiente aplicacao1
 
 kubectl apply -f namespaces/app1.yaml
 
@@ -46,7 +46,7 @@ kubectl apply -f deployments/app1.yaml
 
 kubectl apply -f services/app1.yaml
 
-##Criando ambiente aplicacao2
+## Criando ambiente aplicacao2
 
 kubectl apply -f namespaces/app2.yaml
 
@@ -58,7 +58,7 @@ kubectl apply -f deployments/app2.yaml
 
 kubectl apply -f services/app2.yaml
 
-##Criando ambiente aplicacao3
+## Criando ambiente aplicacao3
 
 kubectl apply -f namespaces/app3.yaml
 
