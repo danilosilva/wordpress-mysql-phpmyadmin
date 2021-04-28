@@ -1,11 +1,6 @@
 
 Para subir a stack realizar os procedimentos abaixo:
-Foram criados tres databases com os nomes db_app1, db_app2 e db_app2. Cada database tem um usuario user/pass como dono conforme tabela abaixo:
-
-DB      | user | pass |
-db_app1 | app1 | app1 |
-db_app2 | app2 | app2 |
-db_app2 | app3 | app3 |
+Foram criados tres databases com os nomes db_app1, db_app2 e db_app2. Cada database tem um usuario user/pass
 
 Requisitos: Para manter os dados mesmo que os pods reiniciem, foram criados pvs do tipo hostpath. é necessário criar os diretorios abaixo no worker que hospedará os containers:
 
