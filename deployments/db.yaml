@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  namespace: db
+  labels:
+    app: db
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+        - name: MYSQL_DATABASE_APP1
+          value: db_app1
+        - name: MYSQL_DATABASE_APP2
+          value: db_app2
+        - name: MYSQL_DATABASE_APP3
+          value: db_app3
+        - name: MYSQL_USER_APP1
+          value: app1
+        - name: MYSQL_USER_APP2
+          value: app2
+        - name: MYSQL_USER_APP3
+          value: app3
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: root
+        - name: MYSQL_USER_APP1_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: app1
+        - name: MYSQL_USER_APP2_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: app2
+        - name: MYSQL_USER_APP3_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: app3
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+        command:
+          - "/bin/bash"
+          - "-c"
+          - "echo 'create database if not exists '$MYSQL_DATABASE_APP1'; create database if not exists '$MYSQL_DATABASE_APP2'; create database if not exists '$MYSQL_DATABASE_APP3'; create user '$MYSQL_USER_APP1'@\"'%'\" identified by \"'$MYSQL_USER_APP1_PASSWORD'\"; create user '$MYSQL_USER_APP2'@\"'%'\" identified by \"'$MYSQL_USER_APP2_PASSWORD'\"; create user '$MYSQL_USER_APP3'@\"'%'\" identified by \"'$MYSQL_USER_APP3_PASSWORD'\"; grant all privileges on '$MYSQL_DATABASE_APP1'.* to '$MYSQL_USER_APP1'@\"'%'\"; grant all privileges on '$MYSQL_DATABASE_APP2'.* to '$MYSQL_USER_APP2'@\"'%'\"; grant all privileges on '$MYSQL_DATABASE_APP3'.* to '$MYSQL_USER_APP3'@\"'%'\";' > /docker-entrypoint-initdb.d/init.sql; /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: db-pvc-claim

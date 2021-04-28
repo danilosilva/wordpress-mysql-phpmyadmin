@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: app3-pv-volume
+  labels:
+    type: app3
+spec:
+  storageClassName: app3
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/sistema/app03"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app3-pvc-claim
+  namespace: app3
+spec:
+  storageClassName: app3
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
