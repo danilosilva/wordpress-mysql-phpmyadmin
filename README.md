@@ -25,6 +25,7 @@ kubectl apply -f deployments/db.yaml
 kubectl apply -f services/db.yaml
 
 ##Criando ambiente phpmyadmin
+
 kubectl apply -f namespaces/phpmyadmin.yaml
 
 kubectl apply -f secrets/phpmyadmin.yaml
@@ -34,6 +35,7 @@ kubectl apply -f deployments/phpmyadmin.yaml
 kubectl apply -f services/phpmyadmin.yaml
 
 ##Criando ambiente aplicacao1
+
 kubectl apply -f namespaces/app1.yaml
 
 kubectl apply -f secrets/app1.yaml
@@ -45,6 +47,7 @@ kubectl apply -f deployments/app1.yaml
 kubectl apply -f services/app1.yaml
 
 ##Criando ambiente aplicacao2
+
 kubectl apply -f namespaces/app2.yaml
 
 kubectl apply -f secrets/app2.yaml
@@ -56,6 +59,7 @@ kubectl apply -f deployments/app2.yaml
 kubectl apply -f services/app2.yaml
 
 ##Criando ambiente aplicacao3
+
 kubectl apply -f namespaces/app3.yaml
 
 kubectl apply -f secrets/app3.yaml
