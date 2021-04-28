@@ -5,13 +5,17 @@ Foram criados tres databases com os nomes db_app1, db_app2 e db_app2. Cada datab
 Requisitos: Para manter os dados mesmo que os pods reiniciem, foram criados pvs do tipo hostpath. é necessário criar os diretorios abaixo no worker que hospedará os containers:
 
 /mnt/sistema/app01
+
 /mnt/sistema/app02
+
 /mnt/sistema/app03
+
 /mnt/sistema/db01
 
 ##Criando banco de dados
 
 kubectl apply -f namespaces/db.yaml
+
 kubectl apply -f secrets/db.yaml
 kubectl apply -f pvs/db.yaml
 kubectl apply -f deployments/db.yaml
