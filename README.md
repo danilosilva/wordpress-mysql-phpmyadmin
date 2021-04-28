@@ -44,8 +44,8 @@ kubectl apply -f secrets/phpmyadmin.yaml
 ## Deployment
 kubectl apply -f deployments/phpmyadmin.yaml
 
-## Service ( esse servico é do tipo NodePort e foi configurado a porta 30083 para acesso)
-## Ex: http:IP_MINIKUBE:30083
+# Service ( esse servico é do tipo NodePort e foi configurado a porta 30083 para acesso)
+# Ex: http:IP_MINIKUBE:30083
 kubectl apply -f services/phpmyadmin.yaml
 
 -- Criando ambiente aplicacao1
@@ -61,8 +61,8 @@ kubectl apply -f pvs/app1.yaml
 ## Deployment
 kubectl apply -f deployments/app1.yaml
 
-## Service ( esse servico é do tipo NodePort e foi configurado a porta 30080 para acesso)
-## Ex: http:IP_MINIKUBE:30080
+# Service ( esse servico é do tipo NodePort e foi configurado a porta 30080 para acesso)
+# Ex: http:IP_MINIKUBE:30080
 kubectl apply -f services/app1.yaml
 
 -- Criando ambiente aplicacao2
@@ -78,8 +78,8 @@ kubectl apply -f pvs/app2.yaml
 ## Deployment
 kubectl apply -f deployments/app2.yaml
 
-## Service ( esse servico é do tipo NodePort e foi configurado a porta 30081 para acesso)
-## Ex: http:IP_MINIKUBE:30081
+# Service ( esse servico é do tipo NodePort e foi configurado a porta 30081 para acesso)
+# Ex: http:IP_MINIKUBE:30081
 kubectl apply -f services/app2.yaml
 
 
@@ -96,6 +96,6 @@ kubectl apply -f pvs/app3.yaml
 ## Deployment
 kubectl apply -f deployments/app3.yaml
 
-## Service ( esse servico é do tipo NodePort e foi configurado a porta 30082 para acesso)
-## Ex: http:IP_MINIKUBE:30082
+# Service ( esse servico é do tipo NodePort e foi configurado a porta 30082 para acesso)
+# Ex: http:IP_MINIKUBE:30082
 kubectl apply -f services/app3.yaml
