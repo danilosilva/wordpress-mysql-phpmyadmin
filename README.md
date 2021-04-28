@@ -9,85 +9,37 @@ Requisitos: Para manter os dados mesmo que os pods reiniciem, foram criados pvs 
 /mnt/sistema/app03
 /mnt/sistema/db01
 
---  Criando banco de dados
+##Criando banco de dados
 
-## Namespace
 kubectl apply -f namespaces/db.yaml
-
-## Secret com as senhas de root e dos usuarios das aplicações
 kubectl apply -f secrets/db.yaml
-
-## Criando pv e pvs
 kubectl apply -f pvs/db.yaml
-
-## Deployment
 kubectl apply -f deployments/db.yaml
-
-## Service
 kubectl apply -f services/db.yaml
 
--- Criando ambiente phpmyadmin
-## NameSpace
+##Criando ambiente phpmyadmin
 kubectl apply -f namespaces/phpmyadmin.yaml
-
-## Secret com a senha de root 
 kubectl apply -f secrets/phpmyadmin.yaml
-
-## Deployment
 kubectl apply -f deployments/phpmyadmin.yaml
-
-# Service ( esse servico é do tipo NodePort e foi configurado a porta 30083 para acesso)
-# Ex: http:IP_MINIKUBE:30083
 kubectl apply -f services/phpmyadmin.yaml
 
--- Criando ambiente aplicacao1
-## NameSpace
+##Criando ambiente aplicacao1
 kubectl apply -f namespaces/app1.yaml
-
-## Secret com a senha do usuario app1
 kubectl apply -f secrets/app1.yaml
-
-## Criando pv e pvs
 kubectl apply -f pvs/app1.yaml
-
-## Deployment
 kubectl apply -f deployments/app1.yaml
-
-# Service ( esse servico é do tipo NodePort e foi configurado a porta 30080 para acesso)
-# Ex: http:IP_MINIKUBE:30080
 kubectl apply -f services/app1.yaml
 
--- Criando ambiente aplicacao2
-## NameSpace
+##Criando ambiente aplicacao2
 kubectl apply -f namespaces/app2.yaml
-
-## Secret com a senha do usuario app2
 kubectl apply -f secrets/app2.yaml
-
-## Criando pv e pvs
 kubectl apply -f pvs/app2.yaml
-
-## Deployment
 kubectl apply -f deployments/app2.yaml
-
-# Service ( esse servico é do tipo NodePort e foi configurado a porta 30081 para acesso)
-# Ex: http:IP_MINIKUBE:30081
 kubectl apply -f services/app2.yaml
 
-
--- Criando ambiente aplicacao3
-## NameSpace
+##Criando ambiente aplicacao3
 kubectl apply -f namespaces/app3.yaml
-
-## Secret com a senha do usuario app3
 kubectl apply -f secrets/app3.yaml
-
-## Criando pv e pvs
 kubectl apply -f pvs/app3.yaml
-
-## Deployment
 kubectl apply -f deployments/app3.yaml
-
-### Service ( esse servico é do tipo NodePort e foi configurado a porta 30082 para acesso)
-### Ex: http:IP_MINIKUBE:30082
 kubectl apply -f services/app3.yaml
